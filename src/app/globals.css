@@ -3,6 +3,27 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme{
+  --animate-marquee: marquee var(--marquee-duration, 10s) linear infinite;
+  --animate-fade-in: fade-in 0.5s linear forwards;
+  
+  @keyframes marquee {
+
+    100% {
+      transform: translateY(-50%); /* Adjust as needed */
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: "0"
+    },
+    to {
+      opacity: "1"
+    }
+  }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -42,6 +63,8 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 }
+
+
 
 :root {
   --radius: 0.5rem;
@@ -121,3 +144,4 @@
     @apply bg-background text-foreground;
   }
 }
+
